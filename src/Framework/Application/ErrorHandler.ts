@@ -4,7 +4,7 @@ import { HttpException, Injectable } from "@nestjs/common";
 
 @Injectable()
 export class ErrorHandler {
-  public handle(error: Error): HttpException {
+  public handle(error: Error): never {
     if (error instanceof NotFound) {
       throw new HttpException(error.message, 404);
     }

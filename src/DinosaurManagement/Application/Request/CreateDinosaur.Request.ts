@@ -1,9 +1,10 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { IsNotEmpty, IsNumber, IsString, IsUUID } from "class-validator";
+import {IsNotEmpty, IsNumber, IsOptional, IsString, IsUUID} from "class-validator";
 
 export class CreateDinosaurRequest {
   @ApiProperty({ type: "uuid", required: false })
   @IsUUID()
+  @IsOptional()
   public id?: string = undefined;
 
   @ApiProperty({ type: "string" })
