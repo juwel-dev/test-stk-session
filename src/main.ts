@@ -3,8 +3,16 @@ import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
 import "source-map-support/register";
 import { MainModule } from "@/Main.Module";
 
+import "./Datasource";
+import { HttpStatus, ValidationPipe } from "@nestjs/common";
+
 async function bootstrap() {
   const app = await NestFactory.create(MainModule);
+  app.useGlobalPipes(
+    new ValidationPipe({
+      errorHttpStatusCode: HttpStatus.UNPROCESSABLE_ENTITY,
+    }),
+  );
 
   const document = SwaggerModule.createDocument(
     app,

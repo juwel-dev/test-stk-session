@@ -1,4 +1,5 @@
-import { AppController } from "@/App/App.Controller";
+import { AppController } from "@/App/Application/Controller/App.Controller";
+import {ErrorHandler} from "@/Framework/Application/ErrorHandler";
 import { Module } from "@nestjs/common";
 
 /**
@@ -7,7 +8,7 @@ import { Module } from "@nestjs/common";
 @Module({
   imports: [],
   controllers: [AppController],
-  providers: [],
-  exports: [],
+  providers: [ErrorHandler],
+  exports: [ErrorHandler],
 })
 export class AppModule {}

@@ -9,4 +9,12 @@ export const DinosaurEntityMapper = {
       .age(entity.age)
       .build();
   },
+
+  toEntity: (model: DinosaurModel) => {
+    const entity = new DinosaurEntity();
+    entity.id = model.id;
+    entity.name = model.name;
+    entity.age = model.age;
+    return entity;
+  },
 };
